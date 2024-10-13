@@ -1,15 +1,14 @@
 ﻿using BodegaVinosAustral.Data;
 using BodegaVinosAustral.Entities;
-using System.Collections.Generic;
 
 namespace BodegaVinosAustral.Services
 {
     public class WineService
     {
-        private readonly InMemoryRepository _repository;
+        private readonly Repository _repository;
 
         // Inyectamos el repositorio a través del constructor
-        public WineService(InMemoryRepository repository)
+        public WineService(Repository repository)
         {
             _repository = repository;
         }

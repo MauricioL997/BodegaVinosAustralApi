@@ -1,7 +1,9 @@
-﻿using BodegaVinosAustral.Entities;
-using BodegaVinosAustral.Services;
+﻿using BodegaVinosAustral.Entities; // Entidades
+using BodegaVinosAustral.Services; // Servicios
+using common.DTOs.BodegaVinosAustral.Common.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BodegaVinosAustral.Controllers
 {
@@ -17,20 +19,27 @@ namespace BodegaVinosAustral.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegisterUser([FromBody] User user)
+        public IActionResult RegisterUser([FromBody] UserDTO userDto)
         {
             // Validación de campos obligatorios
-            if (string.IsNullOrEmpty(user.Username))
+            if (string.IsNullOrEmpty(userDto.Username))
             {
                 return BadRequest("El nombre de usuario es obligatorio.");
             }
 
-            if (string.IsNullOrEmpty(user.Password))
+            if (string.IsNullOrEmpty(userDto.Password))
             {
                 return BadRequest("La contraseña es obligatoria.");
             }
 
-            _userService.RegisterUser(user);
+            // Mapeo de DTO a entidad
+            var newUser = new User
+            {
+                Username = userDto.Username,
+                Password = userDto.Password
+            };
+
+            _userService.RegisterUser(newUser);
             return Ok("Usuario registrado con éxito.");
         }
 
@@ -42,7 +51,15 @@ namespace BodegaVinosAustral.Controllers
             {
                 return NotFound("No hay usuarios registrados.");
             }
-            return Ok(users);
+
+            // Mapeo de entidad a DTO
+            var userDtos = users.Select(user => new UserDTO
+            {
+                Username = user.Username
+                // Añade más campos si es necesario
+            }).ToList();
+
+            return Ok(userDtos);
         }
     }
 }

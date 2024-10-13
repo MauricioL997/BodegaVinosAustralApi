@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BodegaVinosAustral.Data
 {
-    public class InMemoryRepository
+    public class Repository
     {
         // Listas en memoria para vinos y usuarios
         public List<Wine> Wines { get; } = new List<Wine>();

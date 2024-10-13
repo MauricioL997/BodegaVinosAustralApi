@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 // Registrar el repositorio en memoria como singleton
-builder.Services.AddSingleton<InMemoryRepository>();
+builder.Services.AddSingleton<Repository>();
 
 // Registrar los servicios de vinos y usuarios
 builder.Services.AddScoped<WineService>();
