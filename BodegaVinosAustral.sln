@@ -4,12 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BodegaVinosAustral", "BodegaVinosAustral\BodegaVinosAustral.csproj", "{15D90E52-4EA0-494F-82D2-B77D22C2E6BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A44B3628-6F6C-4121-8F59-AE71A0DCAE38} = {A44B3628-6F6C-4121-8F59-AE71A0DCAE38}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{A44B3628-6F6C-4121-8F59-AE71A0DCAE38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{A44B3628-6F6C-4121-8F59-AE71A0DCAE38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "common\common.csproj", "{B7954DD3-5DCF-485B-AE81-E8B556BA3E55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "common", "common\common.csproj", "{B7954DD3-5DCF-485B-AE81-E8B556BA3E55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{C86BA743-FC7B-481F-BA04-D68122FF7E58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{C86BA743-FC7B-481F-BA04-D68122FF7E58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,12 @@
-﻿namespace BodegaVinosAustral.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BodegaVinosAustral.Entities
 {
     public class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         // Nombre de usuario, requerido y único

@@ -5,18 +5,18 @@ namespace BodegaVinosAustral.Services
 {
     public class WineService
     {
-        private readonly Repository _repository;
+        private readonly WineRepository _repository;
 
         // Inyectamos el repositorio a través del constructor
-        public WineService(Repository repository)
+        public WineService(WineRepository repository)
         {
             _repository = repository;
         }
 
         // Método para registrar un nuevo vino
-        public void RegisterWine(Wine wine)
+        public int RegisterWine(Wine wine)
         {
-            _repository.AddWine(wine);
+            return _repository.AddWine(wine);
         }
 
         // Método para consultar el inventario de vinos

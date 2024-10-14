@@ -39,8 +39,8 @@ namespace BodegaVinosAustral.Controllers
                 Password = userDto.Password
             };
 
-            _userService.RegisterUser(newUser);
-            return Ok("Usuario registrado con éxito.");
+            var userId = _userService.RegisterUser(newUser);
+            return Ok(new { message = "Usuario registrado con éxito.", userId });
         }
 
         [HttpGet]
@@ -56,7 +56,6 @@ namespace BodegaVinosAustral.Controllers
             var userDtos = users.Select(user => new UserDTO
             {
                 Username = user.Username
-                // Añade más campos si es necesario
             }).ToList();
 
             return Ok(userDtos);
