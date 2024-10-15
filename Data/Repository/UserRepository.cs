@@ -14,6 +14,11 @@ namespace BodegaVinosAustral.Data
         {
             _context = context;
         }
+        public User? Authenticate(string username, string password)
+        {
+            User userAthenticate = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            return userAthenticate;
+        }
 
         public List<User> GetAllUsers()
         {

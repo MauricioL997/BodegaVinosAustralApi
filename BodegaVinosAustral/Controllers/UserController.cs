@@ -1,6 +1,7 @@
 ﻿using BodegaVinosAustral.Entities; // Entidades
 using BodegaVinosAustral.Services; // Servicios
 using common.DTOs.BodegaVinosAustral.Common.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace BodegaVinosAustral.Controllers
         {
             _userService = userService;
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult RegisterUser([FromBody] UserDTO userDto)
         {

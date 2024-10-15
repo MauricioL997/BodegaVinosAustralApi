@@ -1,6 +1,7 @@
 ﻿using BodegaVinosAustral.Common.DTOs;
 using BodegaVinosAustral.Entities;
 using BodegaVinosAustral.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -8,6 +9,7 @@ namespace BodegaVinosAustral.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class WineController : ControllerBase
     {
         private readonly WineService _wineService;
