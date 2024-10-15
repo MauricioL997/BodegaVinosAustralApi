@@ -30,5 +30,15 @@ namespace BodegaVinosAustral.Services
         {
             return _repository.GetWineByName(name);
         }
+        public IEnumerable<Wine> GetWinesByVariety(string variety)
+        {
+            return _repository.GetWinesbyVariety(variety);
+        }
+        public bool UpdateStock(int wineId, int newStock)
+        {
+            return _repository.UpdateStock(wineId, newStock);
+        }
+
+
     }
 }

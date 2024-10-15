@@ -9,7 +9,7 @@ namespace BodegaVinosAustral.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    
     public class WineController : ControllerBase
     {
         private readonly WineService _wineService;
@@ -18,7 +18,7 @@ namespace BodegaVinosAustral.Controllers
         {
             _wineService = wineService;
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult RegisterWine([FromBody] WineDTO wineDTO)
         {
@@ -100,5 +100,27 @@ namespace BodegaVinosAustral.Controllers
 
             return Ok(wineDto);
         }
+        [HttpGet("variety/{variety}")]
+        public IActionResult GetWinesByVariety(string variety)
+        {
+            var wines = _wineService.GetWinesByVariety(variety);
+            if (wines == null || !wines.Any())
+            {
+                return NotFound("No se encontraron vinos de esa variedad.");
+            }
+            return Ok(wines);
+        }
+        [HttpPut("update-stock/{wineId}")]
+        public IActionResult UpdateStock(int wineId, [FromBody] int newStock)
+        {
+            var result = _wineService.UpdateStock(wineId, newStock);
+            if (result)
+            {
+                return Ok("Stock actualizado correctamente.");
+            }
+            return NotFound("Vino no encontrado.");
+        }
+
+
     }
 }

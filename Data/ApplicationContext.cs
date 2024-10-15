@@ -1,4 +1,5 @@
 ﻿using BodegaVinosAustral.Entities;
+using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,9 @@ namespace Data
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<User> Users { get; set; }  
-        public DbSet<Wine> Wines { get; set; }  
+        public DbSet<User> Users { get; set; }
+        public DbSet<Wine> Wines { get; set; }
+        public DbSet<Cata> Catas { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options) :base(options) { }
     }
 }
